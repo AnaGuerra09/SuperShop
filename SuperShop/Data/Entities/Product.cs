@@ -27,7 +27,7 @@ namespace SuperShop.Data.Entities
         [Display(Name = "Is Available")]
         public Boolean IsAvailable { get; set; }
 
-        [DisplayFormat(DataFormatString = "{0:C2}", ApplyFormatInEditMode = false)]
+        [DisplayFormat(DataFormatString = "{0:N2}", ApplyFormatInEditMode = false)]
         public double Stock {  get; set; }  
 
     }
