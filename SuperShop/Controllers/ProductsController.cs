@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -56,6 +57,8 @@ namespace SuperShop.Controllers
         }
 
         // GET: Products/Create
+
+        [Authorize]
         public IActionResult Create()
         {
             return View();
@@ -64,6 +67,7 @@ namespace SuperShop.Controllers
         // POST: Products/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(ProductViewModel model)
@@ -104,6 +108,8 @@ namespace SuperShop.Controllers
         //}
 
         // GET: Products/Edit/5
+
+        [Authorize]
         public async Task<IActionResult> EditAsync(int? id)
         {
             if (id == null)
@@ -140,6 +146,7 @@ namespace SuperShop.Controllers
         // POST: Products/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(ProductViewModel model)
@@ -195,6 +202,7 @@ namespace SuperShop.Controllers
         }
 
         // POST: Products/Delete/5
+
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
