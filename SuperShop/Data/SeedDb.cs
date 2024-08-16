@@ -61,7 +61,7 @@ namespace SuperShop.Data
             if (!_context.Products.Any())
             {
                 AddProduct("iPhone X", user);
-                AddProduct("Mafic Mouse", user);
+                AddProduct("Magic Mouse", user);
                 AddProduct("iWatch Series 4", user);
                 AddProduct("iPad Mini", user);
                 await _context.SaveChangesAsync();

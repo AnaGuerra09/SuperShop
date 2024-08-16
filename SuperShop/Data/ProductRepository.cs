@@ -1,6 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System.Linq;
 using SuperShop.Data.Entities;
-using System.Linq;
+using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace SuperShop.Data
 {
@@ -15,6 +17,23 @@ namespace SuperShop.Data
         public IQueryable GetAllWithUsers()
         {
             return _context.Products.Include(p => p.User);
+        }
+
+        public IEnumerable<SelectListItem> GetComboProducts()
+        {
+            var list = _context.Products.Select(p => new SelectListItem
+            {
+                Text = p.Name,
+                Value = p.Id.ToString()
+            }).ToList();
+
+            list.Insert(0, new SelectListItem
+            {
+                Text = "(Select a product...)",
+                Value = "0"
+            });
+
+            return list;
         }
     }
 }
