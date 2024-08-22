@@ -18,7 +18,7 @@ namespace SuperShop.Data.Entities
         [Display(Name="Image")]
         public Guid ImageId { get; set; }
 
-        [Display(Name = "Last Purchased")]
+        [Display(Name = "Last Purchase")]
         public DateTime? LastPurchased { get; set; }
 
         [Display(Name = "Last Sale")]
