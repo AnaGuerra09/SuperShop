@@ -15,6 +15,7 @@ using Microsoft.IdentityModel.Tokens;
 using SuperShop.Data;
 using SuperShop.Data.Entities;
 using SuperShop.Helpers;
+using Vereyon.Web;
 
 namespace SuperShop
 {
@@ -66,6 +67,8 @@ namespace SuperShop
             {
                 cfg.UseSqlServer(this.Configuration.GetConnectionString("DefaultConnection"));
             });
+
+            services.AddFlashMessage();
 
             services.AddTransient<SeedDb>();
 
