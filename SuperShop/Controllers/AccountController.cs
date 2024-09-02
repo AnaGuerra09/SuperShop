@@ -131,7 +131,7 @@ namespace SuperShop.Controllers
                     }
 
                     ModelState.AddModelError(string.Empty, "The user couldn't be logged.");
-                }
+                } 
             }
 
             return View(model);
